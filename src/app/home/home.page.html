@@ -1,20 +1,64 @@
-<ion-header [translucent]="true">
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,700&display=swap">
+
+</head>
+
+<ion-header>
   <ion-toolbar>
     <ion-title>
-      Blank
+      Weather
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-item>
+        <ion-input [(ngModel)]="city" placeholder="Enter city"></ion-input>
+        <ion-button (click)="searchWeather()">Search</ion-button>
+      </ion-item>
+    </ion-card-header>
+    <ion-card-content *ngIf="weatherTemp">
+      <ion-row class="weather-info">
+        <ion-col size="12" class="temperature">
+          <h1>{{weatherTemp.name}}</h1>
+          <p>{{ currentDate }}</p>
+          <sup class="celsius-symbol">&#8451;</sup>
+          <ion-icon [name]="getWeatherIcon(weatherTemp.weather[0].main)" class="weather-icon"></ion-icon>
+          <span>{{ weatherTemp.main.temp | number:'1.0-1' }}</span>
+          <p>{{ weatherTemp.weather[0].main }}</p>
+        </ion-col>
+      </ion-row>
+      <ion-row class="weather-info">
+  <ion-col size="12" class="weather-data-container">
+    <ion-label class="weather-title">Min Temperature</ion-label>
+    <ion-label class="weather-data">{{ weatherTemp.main.temp_min | number:'1.0-1' }} &#8451;</ion-label>
+  </ion-col>
+</ion-row>
+<ion-row class="weather-info">
+  <ion-col size="12" class="weather-data-container">
+    <ion-label class="weather-title">Max Temperature</ion-label>
+    <ion-label class="weather-data">{{ weatherTemp.main.temp_max | number:'1.0-1' }} &#8451;</ion-label>
+  </ion-col>
+</ion-row>
+<ion-row class="weather-info">
+  <ion-col size="12" class="weather-data-container">
+    <ion-label class="weather-title">Pressure</ion-label>
+    <ion-label class="weather-data">{{ weatherTemp.main.pressure }} mbar</ion-label>
+  </ion-col>
+</ion-row>
+<ion-row class="weather-info">
+  <ion-col size="12" class="weather-data-container">
+    <ion-label class="weather-title">Humidity</ion-label>
+    <ion-label class="weather-data">{{ weatherTemp.main.humidity }}%</ion-label>
+  </ion-col>
+</ion-row>
+
+      
+    </ion-card-content>
+  </ion-card>
+  <div *ngIf="!weatherTemp"></div>
 </ion-content>
+

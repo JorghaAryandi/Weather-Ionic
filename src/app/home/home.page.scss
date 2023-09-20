@@ -1,27 +1,78 @@
-#container {
-  text-align: center;
+/* Menggunakan font Poppins untuk seluruh tampilan */
+* {
+  font-family: 'Poppins', sans-serif;
+  border-radius: 20px;
+  color: #222A54;
+  
+}
 
+.card-content-ios h1 {
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  margin-bottom: 2px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+ion-card-header + .card-content-ios {
+  background: linear-gradient(180deg, #B8C3FF 0%, rgba(169, 208, 206, 0.72) 52.6%, #FFECBB 100%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Menambahkan bayangan */
+}
+
+ion-card-header+.card-content-md {
+  background: linear-gradient(180deg, #B8C3FF 0%, rgba(169, 208, 206, 0.72) 52.6%, #FFECBB 100%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Menambahkan bayangan */
+  padding: 5px;
+}
+
+
+
+.celsius-symbol {
+  font-size: 14px; /* Ukuran simbol derajat Celsius yang lebih kecil */
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 120px;
+  right: 60px;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.weather-info {
+  margin-top: 10px; /* Jarak atas antara setiap baris informasi cuaca */
+
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+.temperature {
+  font-size: 92px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; // Mengatur posisi vertikal ke tengah
+  text-align: center;
+  margin-top: 15px;
+  
 }
 
-#container a {
-  text-decoration: none;
+.weather-icon {
+  font-size: 24px; // Sesuaikan ukuran ikon saesuai keinginan Anda
+  margin-bottom: 5px; // Jarak antara ikon cuaca dan suhu
 }
+
+.weather-data-container {
+  display: block;
+}
+
+.weather-data-container span {
+  font-weight: bold;
+}
+
+.weather-title {
+  font-size: 18px; /* Ukuran font judul */
+  flex-direction: column;
+}
+
+.weather-data {
+  font-size: 20px; /* Ukuran font data suhu lebih besar dari judul */
+  font-weight: bold;
+  position: absolute;
+  right: 20px;
+}
+
+
